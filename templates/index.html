@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h4 {
+            color: #fff;
+            background-color: #007bff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .analysis-results {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h4>Bluechip Technologies Asia</h4>
+    <h1>Sentiment Analysis for the Chinese Language</h1>
+    
+    <form action="/" method="post">
+        <label for="text">Enter Chinese Text:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if text %}
+    <div class="analysis-results">
+        <h2>Analysis Results:</h2>
+        <p><strong>Keywords:</strong> {{ keywords }}</p>
+        <p><strong>Summary:</strong></p>
+        <ul>
+            {% for sentence in summary %}
+                <li>{{ sentence }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Sentences:</strong></p>
+        <ul>
+            {% for i in range(sentences | length) %}
+                <li>{{ sentences[i] }} - Sentiment: {{ sentiments[i] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <footer>
+        
+    
+    
+    <p>
+        <a href="https://www.linkedin.com/in/thilina-sandamal-kavirathne/" target="_blank">LinkedIn</a> | 
+        <a href="https://github.com/thilinakavirathne" target="_blank">GitHub</a> |
+        <a href="https://www.facebook.com/skilllab.edu.tech" target="_blank">Facebook</a>
+
+    </p>
+    <p>| By THILINA SANDAMAL |</p>
+    Bluechip Technologies Asia 
+</footer>
+
+    </footer>
+</body>
+</html>
